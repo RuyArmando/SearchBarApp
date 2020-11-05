@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<component:SearchPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:component="clr-namespace:SearchBarApp.Components"
+             PlaceHolder="Search Produtcs..."
+             Title="List Products"
+             x:Class="SearchBarApp.Views.ProductsPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem StyleId="Parameter" Order="Secondary" Text="Parameter" Clicked="ToolbarItem_Clicked" />
+        <ToolbarItem StyleId="Sort" Order="Secondary" Text="Sort" Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="myLabel" 
+                   Text="Welcome to Xamarin.Forms!"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</component:SearchPage>

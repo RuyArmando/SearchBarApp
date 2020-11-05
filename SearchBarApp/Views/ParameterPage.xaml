@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             x:Class="SearchBarApp.Views.ParameterPage">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <!--You can use any elements here which are extended from Xamarin.Forms.View-->
+    <Frame  VerticalOptions="Center" HorizontalOptions="Center" >
+        <StackLayout Padding="20, 20, 20, 20">
+            <Label Text="Select the search criteria:" />
+            <RadioButton Text="Barcode" x:Name="IsBarCode" CheckedChanged="IsBarCode_CheckedChanged" IsChecked="True" />
+            <RadioButton Text="Description" x:Name="IsDescription" CheckedChanged="IsDescription_CheckedChanged"/>
+            <RadioButton Text="Brand" x:Name="IsBrand" CheckedChanged="IsBrand_CheckedChanged"/>
+            <Button Text="Ok" Clicked="Button_Clicked"></Button>
+        </StackLayout>
+    </Frame>
+</pages:PopupPage>
