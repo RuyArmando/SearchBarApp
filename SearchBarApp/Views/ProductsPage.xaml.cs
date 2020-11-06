@@ -26,22 +26,34 @@ namespace SearchBarApp.Views
             });
         }
 
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            ((MasterDetailPage)App.Current.MainPage).IsGestureEnabled = true;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnDisappearing();
+            ((MasterDetailPage)App.Current.MainPage).IsGestureEnabled = false;
+        }
+        
         private void HandleSearchText(object sender, string text)
         {
             DisplayAlert("Submit", $"Text: {text}", "Yes");
         }
 
-        private async void ToolbarItem_Clicked(object sender, EventArgs e)
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
         {
             if(sender is ToolbarItem toolbar)
             {
                 switch (toolbar.StyleId)
                 {
                     case "Sort":
-                        await Navigation.PushPopupAsync(new SortPage());
+                        Navigation.PushPopupAsync(new SortPage());
                         break;
                     case "Parameter":
-                        await Navigation.PushPopupAsync(new ParameterPage());
+                        Navigation.PushPopupAsync(new ParameterPage());
                         break;
                 }
 

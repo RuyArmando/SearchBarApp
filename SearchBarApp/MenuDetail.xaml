@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SearchBarApp.Fonts"
+             x:Class="SearchBarApp.MenuDetail"
+             Title="Pedido"
+             Visual="Material">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label TextColor="White" 
+                   Text="Pedido"
+                   FontSize="20"
+                   HorizontalOptions="StartAndExpand"
+                   VerticalOptions="Center"
+                   BackgroundColor="Transparent" />
+
+            <Button TextColor="White" 
+                    Visual="Default"
+                    Text="{x:Static local:Icon.Building}"
+                    FontSize="20"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    BackgroundColor="Transparent" 
+                    FontFamily="FontAwesomeBold" />
+
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <StackLayout Orientation="Vertical" Margin="10">
+
+        <Button TextColor="#03A9F4" 
+                Text="&#xf466;"
+                
+                FontSize="20"
+                BackgroundColor="Transparent" 
+                FontFamily="FontAwesomeBold" />
+
+        <Button TextColor="#03A9F4" 
+                Text="{x:Static local:Icon.AddressBook}"
+                FontSize="20"
+                BackgroundColor="Transparent" 
+                FontFamily="FontAwesomeBold" />
+
+        <Button Text="Test" />
+    </StackLayout>
+</ContentPage>

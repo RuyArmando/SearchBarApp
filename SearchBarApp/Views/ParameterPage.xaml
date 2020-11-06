@@ -20,9 +20,9 @@
     <Frame  VerticalOptions="Center" HorizontalOptions="Center" >
         <StackLayout Padding="20, 20, 20, 20">
             <Label Text="Select the search criteria:" />
-            <RadioButton Text="Barcode" x:Name="IsBarCode" CheckedChanged="IsBarCode_CheckedChanged" IsChecked="True" />
-            <RadioButton Text="Description" x:Name="IsDescription" CheckedChanged="IsDescription_CheckedChanged"/>
-            <RadioButton Text="Brand" x:Name="IsBrand" CheckedChanged="IsBrand_CheckedChanged"/>
+            <RadioButton Text="Barcode" x:Name="IsBarCode" CheckedChanged="IsBarCode_CheckedChanged" IsChecked="True" Visual="Default" />
+            <RadioButton Text="Description" x:Name="IsDescription" CheckedChanged="IsDescription_CheckedChanged" Visual="Default"/>
+            <RadioButton Text="Brand" x:Name="IsBrand" CheckedChanged="IsBrand_CheckedChanged" Visual="Default" />
             <Button Text="Ok" Clicked="Button_Clicked"></Button>
         </StackLayout>
     </Frame>

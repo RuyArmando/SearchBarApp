@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SearchBarApp.Fonts"
+             Visual="Material"
+             x:Class="SearchBarApp.ProductsSearchPage">
+    <NavigationPage.TitleView>
+
+        <StackLayout Orientation="Horizontal" Margin="0, 0, 10, 0" HorizontalOptions="FillAndExpand">
+            <Entry x:Name="searchBar" 
+                   TextColor="White"
+                   PlaceholderColor="#cdeffe"
+                   Placeholder="Search..."
+                   FontSize="14"
+                   HorizontalOptions="FillAndExpand" 
+                   TextChanged="Entry_TextChanged"
+                   Completed="SearchBar_Completed"  />
+            <Label x:Name="searchButton" 
+                   TextColor="White" IsVisible="False"
+                   Text="{x:Static local:Icon.CheckCircle}"
+                   FontSize="20"
+                   HorizontalOptions="End"
+                   VerticalOptions="Center"
+                   BackgroundColor="Transparent" 
+                   FontFamily="FontAwesomeBold">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="SearchBar_Completed" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem StyleId="Parameter" Order="Secondary" Text="Parameter" Clicked="ToolbarItem_Clicked" />
+        <ToolbarItem StyleId="Sort" Order="Secondary" Text="Sort" Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <StackLayout x:Name="suggestionLayout" HeightRequest="200" IsVisible="False">
+                <ListView x:Name="suggestionListView" 
+                      IsVisible="True"
+                      HasUnevenRows="True"
+                      SeparatorVisibility="Default"
+                      CachingStrategy="RecycleElement" 
+                      BackgroundColor="White" 
+                      ItemTapped="ListView_OnItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10,5,0,5" 
+                                         Orientation="Horizontal"
+                                         HorizontalOptions="FillAndExpand"
+                                         BackgroundColor="White">
+
+                                    <Label Text="{x:Static local:Icon.History}"
+                                       TextColor="Silver" 
+                                       BackgroundColor="Transparent" 
+                                       FontSize="16"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="Center"
+                                       FontFamily="FontAwesomeBold"/>
+
+                                    <Label Text="{Binding .}" 
+                                       TextColor="Silver"
+                                       BackgroundColor="Transparent" 
+                                       FontSize="16" 
+                                       FontAttributes="Bold" 
+                                       Margin="15, 0, 0, 0"
+                                       HorizontalOptions="StartAndExpand"
+                                       VerticalOptions="Center"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <ListView x:Name="productsListView" 
+                      IsVisible="True"   
+                      ItemsSource="{Binding ProductCollection}"
+                      SeparatorVisibility="Default"
+                      CachingStrategy="RecycleElement" 
+                      BackgroundColor="White">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10,5,0,5" 
+                                         Orientation="Vertical"
+                                         HorizontalOptions="FillAndExpand"
+                                         BackgroundColor="White">
+                                <Label Text="{Binding .}" 
+                                       TextColor="#03A9F4"
+                                       BackgroundColor="Transparent" 
+                                       FontSize="16" 
+                                       FontAttributes="Bold"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
