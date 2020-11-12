@@ -1,5 +1,5 @@
 on: push
-name: Build and Generate Android Apk
+name: Build and Generate APK (Droid)
 env:
   SOLUTION_NAME: ${{secrets.SOLUTION_NAME}}
   ANDROID_PROJECT_NAME: ${{secrets.ANDROID_PROJECT_NAME}}
