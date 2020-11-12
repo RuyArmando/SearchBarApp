@@ -1,5 +1,13 @@
-on: push
-name: Build and Generate APK (Droid)
+on: 
+  pull_request:
+    branches:    
+      # Push events on main branch
+      - master
+    # Sequence of patterns matched against refs/tags
+    tags:        
+      - v1             # Push events to v1 tag
+      - v1.*           # Push events to v1.0, v1.1, and v1.9 tags
+name: Build and Generate APK (master)
 env:
   SOLUTION_NAME: ${{secrets.SOLUTION_NAME}}
   ANDROID_PROJECT_NAME: ${{secrets.ANDROID_PROJECT_NAME}}
@@ -12,11 +20,11 @@ jobs:
       - name: Building APK
         uses: ./action
         with:
-          args: /r:True /t:SignAndroidPackage /p:AndroidSdkDirectory=/android/sdk ${{env.SOLUTION_NAME}}/${{env.ANDROID_PROJECT_NAME}}/${{env.ANDROID_PROJECT_NAME}}.csproj
+          args: /r:True /t:SignAndroidPackage /p:AndroidSdkDirectory=/android/sdk ${{env.ANDROID_PROJECT_NAME}}/${{env.ANDROID_PROJECT_NAME}}.csproj
       - name: Artifacts
         run: |
           mkdir -p apks
-          cp ${{env.SOLUTION_NAME}}/${{env.ANDROID_PROJECT_NAME}}/bin/Debug/com.companyname.searchbarapp-Signed.apk apks
+          cp ${{env.ANDROID_PROJECT_NAME}}/bin/Debug/com.companyname.searchbarapp-Signed.apk apks
       - name: Upload Artifacts
         uses: actions/upload-artifact@v1
         with:
