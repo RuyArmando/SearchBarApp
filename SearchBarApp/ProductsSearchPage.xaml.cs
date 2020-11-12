@@ -1,4 +1,5 @@
-﻿using SearchBarApp.Views;
+﻿using Rg.Plugins.Popup.Extensions;
+using SearchBarApp.Views;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -80,17 +81,17 @@ namespace SearchBarApp
             suggestionListView.EndRefresh();
         }
 
-        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        private async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
             if (sender is ToolbarItem toolbar)
             {
                 switch (toolbar.StyleId)
                 {
                     case "Sort":
-                        Navigation.PushAsync(new SortPage());
+                        await Navigation.PushPopupAsync(new SortPage());
                         break;
                     case "Parameter":
-                        Navigation.PushAsync(new ParameterPage());
+                        await Navigation.PushPopupAsync(new ParameterPage());
                         break;
                 }
             }

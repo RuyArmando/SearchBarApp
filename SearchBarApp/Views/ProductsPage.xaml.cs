@@ -43,21 +43,19 @@ namespace SearchBarApp.Views
             DisplayAlert("Submit", $"Text: {text}", "Yes");
         }
 
-        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        private async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
-            if(sender is ToolbarItem toolbar)
+            if (sender is ToolbarItem toolbar)
             {
                 switch (toolbar.StyleId)
                 {
                     case "Sort":
-                        Navigation.PushPopupAsync(new SortPage());
+                        await Navigation.PushPopupAsync(new SortPage());
                         break;
                     case "Parameter":
-                        Navigation.PushPopupAsync(new ParameterPage());
+                        await Navigation.PushPopupAsync(new ParameterPage());
                         break;
                 }
-
-                //OnPlaceHolderChanged(PlaceHolder);
             }
         }
     }

@@ -21,8 +21,8 @@
         HorizontalOptions="Center" >
         <StackLayout Padding="20, 20, 20, 20">
             <Label Text="How you want to sort the result?" />
-            <RadioButton Text="Ascending" x:Name="IsASC" CheckedChanged="IsASC_CheckedChanged" IsChecked="True" Visual="Default"  />
-            <RadioButton Text="Descending " x:Name="IsDESC" CheckedChanged="IsDESC_CheckedChanged" Visual="Default"/>
+            <RadioButton Text="Ascending" x:Name="IsASC" CheckedChanged="IsASC_CheckedChanged" IsChecked="True"  />
+            <RadioButton Text="Descending " x:Name="IsDESC" CheckedChanged="IsDESC_CheckedChanged"/>
             <Button Text="Ok" Clicked="Button_Clicked"></Button>
         </StackLayout>
     </Frame>

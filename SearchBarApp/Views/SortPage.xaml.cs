@@ -1,13 +1,11 @@
-﻿using Rg.Plugins.Popup.Extensions;
-using System;
-
+﻿using Rg.Plugins.Popup.Pages;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Rg.Plugins.Popup.Extensions;
+using System;
 
 namespace SearchBarApp.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SortPage : Rg.Plugins.Popup.Pages.PopupPage
+    public partial class SortPage : PopupPage
     {
         bool IsAscSelect;
         bool IsDescSelect;
